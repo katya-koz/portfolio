@@ -1,9 +1,6 @@
-import React from "react";
-import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.scss";
 import Section from "./templates/Section";
-import { SkillCarousel } from "./components/SkillCarousel";
 import TypeWriterText from "./components/TypeWriterText";
 import { HStack } from "./components/HStack";
 import TimeLine from "./components/TimeLine";

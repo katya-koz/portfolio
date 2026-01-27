@@ -20,12 +20,14 @@ export default function Carousel({ images }: CarouselProps) {
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
+
       if (index === currItem) {
-        video.muted = false;
+        video.muted = true;
         video.play().catch(() => {});
       } else {
-        video.muted = true;
         video.pause();
+        video.currentTime = 0;
+        video.muted = true;
       }
     });
   }, [currItem]);
