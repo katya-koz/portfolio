@@ -206,7 +206,7 @@ function App() {
 
       imageSrc: ["personalwebsite/personalwebsite-1.png"],
       technologies: ["Typescript", "React", "SCSS", "Tailwind"],
-      link: "https://github.com/katya-koz/personal-portfolio",
+      link: "https://github.com/katya-koz/portfolio",
     },
     {
       title: "Automatic NFC Pet Feeder",
