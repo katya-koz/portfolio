@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 import Section from "./templates/Section";
 import TypeWriterText from "./components/TypeWriterText";

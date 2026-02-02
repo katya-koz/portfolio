@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DarkModeToggle() {
   const [isDark, setIsDark] = useState(false);
 
+  useEffect(() => {
+    const userTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    if (userTheme === "dark" || (!userTheme && systemPrefersDark)) {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
   const handleDarkModeToggle = () => {
-    setIsDark(!isDark);
-    // the state change wont update till the next render, so we must change the dark mode based on negating the previous state
-    if (isDark)
-      document.getElementsByTagName("html")[0].classList.remove("dark");
-    else document.getElementsByTagName("html")[0].classList.add("dark");
+    setIsDark((prev) => {
+      const next = !prev;
+
+      document.documentElement.classList.toggle("dark", next);
+      localStorage.setItem("theme", next ? "dark" : "light");
+
+      return next;
+    });
   };
 
   return (
