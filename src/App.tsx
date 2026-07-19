@@ -1,18 +1,23 @@
-import React from "react";
-import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.scss";
 import Section from "./templates/Section";
-import { SkillCarousel } from "./components/SkillCarousel";
 import TypeWriterText from "./components/TypeWriterText";
 import { HStack } from "./components/HStack";
 import TimeLine from "./components/TimeLine";
 import ProjectPanel from "./components/ProjectPanel";
+import ProjectsSection from "./components/ProjectsSection";
+import DarkModeToggle from "./components/DarkModeToggle";
 
 function App() {
   const [currentLine, setCurrentLine] = useState(0);
 
   const experiences = [
+    {
+      title: "OMERS & Oxford Properties",
+      role: "Software Developer",
+      logoSrc: "/images/op_logo.png",
+      date: "May 2026 - August 2026",
+    },
     {
       title: "Virtual Reality & Perception Lab",
       role: "Research Assistant",
@@ -44,8 +49,8 @@ function App() {
     "Bash",
     "Verilog",
     "R",
-    "SCSS/CSS",
-    "Matlab",
+    // "SCSS/CSS",
+    // "Matlab",
   ];
 
   const frameworks = [
@@ -53,41 +58,73 @@ function App() {
     "ASP.NET",
     "Spring Boot",
     "Kafka",
-    "ReactJS",
-    "NodeJS",
-    "Express.js",
-    "Pandas",
-    "PyTorch",
+    "React",
+    "Node.js",
+    "Next.js",
+    "Vulkan",
+    "FastAPI",
+    "JUnit",
+    // "Express.js",
+    // "Pandas",
+    // "PyTorch",
     "Unity",
   ];
-  const data = ["PostgreSQL", "MongoDB", "MSSQL(T - SQL)", "SSIS"];
+  const data = ["Redis", "PostgreSQL", "MongoDB", "SSIS"];
 
   const devops = [
+    "Kubernetes",
     "Docker",
-    "Azure, AWS (S3, CloudFront)",
+    "Apache Airflow",
+    "Azure",
+    "AWS",
     "Nginx",
-    "JUnit",
     "Debian/Linux",
-    "JMeter",
-    "Maven",
-    "Gradle",
-    "Selenium",
-    "Git",
+    // "JMeter",
+    // "Maven",
+    // "Gradle",
+    // "Selenium",
+    // "Git",
   ];
 
   const projects = [
     {
+      title: "FPGA Audio Visualizer with Ring Modulator",
+      description:
+        "FPGA audio processing pipeline built with DE10-Lite, implementing: MEMS I²S audio acquisition, 16-point radix-2 FFT spectrum analysis, frequency adjustable ring modulation, and first order delta sigma (ΔΣ) modulation for 1-bit PCM -> PDM audio output.",
+
+      imageSrc: [
+        "audiovisualizer/audiovisualizer_1.jpg",
+        "audiovisualizer/audiovisualizer_2.png",
+        "audiovisualizer/audiovisualizer_3.png",
+        "audiovisualizer/audiovisualizer_demo.mp4",
+      ],
+      technologies: ["Verilog", "FPGA", "Digital Signal Processing", "FFT"],
+      link: "https://github.com/katya-koz/audio-visualizer-and-vocoder",
+    },
+    {
+      title: "HDR Vulkan Image Pipeline",
+      description:
+        "Vulkan graphics pipeline for conducting ISO Single Interval Flicker experiments with stereoscopic HDR rendering, built for a dual monitor mirror stereoscope setup. Created under the Centre for Vision Research @ YorkU.",
+
+      imageSrc: ["vulkanhdr/vulkan_1.jpg", "vulkanhdr/vulkan_2.jpg"],
+      technologies: ["C++", "Vulkan", "GLFW", "OpenCV", "Image Processing"],
+      link: "https://github.com/katya-koz/Single-Interval-Flicker-Vulkan",
+    },
+    {
       title: "BlueBid",
       description:
-        "Led a team to build a real-time online auction platform with a microservices architecture focused on scalability and reliability. The system supports secure user authentication, live bidding updates, and containerized deployment for easy scaling. Performance testing confirmed stable operation under hundreds of concurrent users.",
-      date: "December 2025",
+        "Real-time online auction platform built with a microservices architecture. Supports secure authentication, live bidding via WebSockets, and scalable containerized deployment; performance-tested under hundreds of concurrent users. Led a group of 4.",
+
       imageSrc: [
-        "katyaflix/katyaflix_1.jpg",
-        "katyaflix/katyaflix_2.jpg",
-        "katyaflix/katyaflix_3.jpg",
-        "katyaflix/katyaflix_4.jpg",
-        "katyaflix/katyaflix_5.jpg",
-        "katyaflix/katyaflix_6.jpg",
+        "bluebid/bluebid_2.png",
+        "bluebid/bluebid_4.png",
+        "bluebid/bluebid_6.png",
+        "bluebid/bluebid_7.png",
+        "bluebid/bluebid_8.png",
+        "bluebid/bluebid_9.png",
+        "bluebid/bluebid_10.png",
+        "bluebid/bluebid_11.png",
+        "bluebid/bluebid_1.png",
       ],
       technologies: [
         "Java Spring Boot",
@@ -105,8 +142,8 @@ function App() {
     {
       title: "KatyaFlix",
       description:
-        "To organize my personal (legally owned) media collection, I created a system to keep track of my lists and watchtimes.",
-      date: "December 2025",
+        "Self-hosted media management platform for organizing personal video collections. Enables users to track watch history, manage lists, and stream content through a web interface.",
+
       imageSrc: [
         "katyaflix/katyaflix_6.jpg",
         "katyaflix/katyaflix_5.jpg",
@@ -124,154 +161,143 @@ function App() {
         "Bash",
         "Debian",
       ],
-      link: "https://github.com/katya-koz/eecs-4413-project",
+      link: "https://github.com/katya-koz/movie-library",
     },
     {
       title: "SALLY API",
       description:
-        "Designed and created from the ground up during my co-op term at Mackenzie Health. Secure .NET backend API tool hosted via IIS, centralizing data access, user authentication, reporting, emailing, and user/profile management of over 10,000 employees across 5 services. Fills the gap between lacking third party software from previous contractors and expedites in house app developments.",
-      date: "December 2025",
-      imageSrc: ["sallyapi/sallyapi_1.jpg"],
-      technologies: [
-        "C#",
-        "ASP.NET",
-        "REST API",
-        "Quartz.NET",
-        "JavaScript",
-        "SQL",
-        "IIS",
-      ],
+        "Internal backend platform developed during my co-op at Mackenzie Health. Centralizes authentication, user management, reporting, email, and scheduled jobs for the management of over 10,000 employees across multiple hospital services.",
+
+      imageSrc: ["sallyapi/sallyapi_1.png"],
+      technologies: ["C#", "ASP.NET", "REST API", "Quartz.NET", "SQL", "IIS"],
     },
     {
       title: "Badgeify",
       description:
-        "Developed during my co-op term at Mackenzie Health. Workflow automation tool to expedite the employee badge issuance process for the Security department, which is a critical task. Previously a manual, error prone task performed across two separate web UIs, Badgeify integrates with Active Directory to use employee profiles as the source of truth. It automatically maps the correct fields to two external contractor services, eliminating spelling mistakes and misassignments. To date, it has successfully expedited, consolidated, and updated over 1,500 employee badges. Utilizes SALLY API.",
-      date: "December 2025",
+        "Internal workflow automation tool developed at Mackenzie Health to streamline employee badge issuance. Integrates with Active Directory and external vendors to eliminate manual errors, successfully processing over 1,500 employee badges. Powered by SALLY API.",
+
       imageSrc: [
-        "badgeify/badgeify_1.jpg",
         "badgeify/badgeify_2.jpg",
         "badgeify/badgeify_3.jpg",
         "badgeify/badgeify-demo.mp4",
       ],
-      technologies: [
-        "C#",
-        "ASP.NET",
-        "SQL",
-        "REST API",
-        "Quartz.NET",
-        "JavaScript",
-        "SQL",
-        "IIS",
-      ],
+      technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
     },
     {
       title: "Handsify",
       description:
-        "Created during my co-op term at Mackenzie Health to manage over 10,000 smart hand sanitizer sensors acrosss the hospital. Handsify provides a visual dashboard to streamline sensor maintenance and tracking. Began development of a machine learning model to predict maintenance needs, reducing manual inspection time and saving an estimated 7+ hours of monthly on floor maintenance. Utilizes SALLY API.",
-      date: "December 2025",
+        "Internal dashboard application for managing and maintaining over 10,000 IoT devices across a hospital network. Provides real-time tracking and reporting, with early ML work to predict maintenance needs and reduce manual inspections. Powered by SALLY API.",
+
       imageSrc: [
-        "handsify/handsify_1.jpg",
-        "handsify/handsify_2.jpg",
         "handsify/handsify_3.jpg",
         "handsify/handsify_4.jpg",
         "handsify/handsify-demo.mp4",
       ],
-      technologies: [
-        "C#",
-        "ASP.NET",
-        "SQL",
-        "REST API",
-        "Quartz.NET",
-        "JavaScript",
-        "SQL",
-        "IIS",
-      ],
+      technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
     },
-    {
-      title: "Personal Website",
-      description:
-        "Super meta - this is the website you're on right now. I'm constantly fixing it up and adding new stuff. It's mobile friendly!",
-      date: "December 2025",
-      imageSrc: ["personalwebsite/personalwebsite-1.jpg"],
-      technologies: ["Typescript", "React", "SCSS", "Tailwind"],
-    },
+
     {
       title: "Pawfect Pairs",
       description:
-        "Pawfect Pairs is designed to help prospective pet owners find their perfect match; users set personal preferences and apply filters, and are scored with the best potential matches. The platform also features a user-pet meetup scheduler, as well as a donation/sponsorship system (one time or recurring). Took a leading role in this project for my Software Development Project course (EECS 2311).",
-      date: "December 2025",
+        "Pet adoption platform that matches prospective owners with pets based on preferences and scoring algorithms. Includes scheduling, donations, and sponsorship features. Took a leading role in a 6 member academic team project.",
+
       imageSrc: [
-        "pawfectpairs/pawfectpairs_1.jpg",
         "pawfectpairs/pawfectpairs_2.jpg",
         "pawfectpairs/pawfectpairs_3.jpg",
         "pawfectpairs/pawfectpairs_4.jpg",
         "pawfectpairs/pawfectpairs_5.jpg",
         "pawfectpairs/pawfectpairs_6.jpg",
         "pawfectpairs/pawfectpairs_7.jpg",
-        "pawfectpairs/pawfectpairs_8.jpg",
+
         "pawfectpairs/pawfectpairs_9.jpg",
         "pawfectpairs/pawfectpairs_10.jpg",
         "pawfectpairs/pawfectpairs_11.jpg",
-        "pawfectpairs/pawfectpairs_12.jpg",
+
         "pawfectpairs/pawfectpairs_13.jpg",
-        "pawfectpairs/pawfectpairs_14.jpg",
-        "pawfectpairs/pawfectpairs_15.jpg",
       ],
       technologies: ["Java", "JavaFX", "PostgreSQL", "JUnit", "Gradle", "CSS"],
+      link: "https://github.com/katya-koz/eecs-2311-group-project",
     },
     {
       title: "FPGA Digital Safe",
       description:
-        "Built and programmed a prototyped digital safe using a DE10-Lite FPGA board. For my Digital Logic Design (EECS 3201) course.",
-      date: "December 2025",
+        "Digital safe prototype built on a DE10-Lite FPGA board. Implements secure input handling and access logic using Verilog as part of a digital logic design course.",
+
       imageSrc: [
         "digitallock/digitallock_1.jpg",
         "digitallock/digitallock-demo.mp4",
-        "digitallock/digitallock_report.pdf",
+        //"digitallock/digitallock_report.pdf",
       ],
       technologies: ["Verilog", "FPGA", "Quartus Prime"],
+      link: "https://github.com/katya-koz/digital-safe",
+    },
+    {
+      title: "Personal Website",
+      description:
+        "Super meta - this is the website you're on right now. I'm constantly fixing it up and adding new stuff. It's mobile friendly!",
+
+      imageSrc: ["personalwebsite/personalwebsite-1.png"],
+      technologies: ["Typescript", "React", "SCSS", "Tailwind"],
+      link: "https://github.com/katya-koz/portfolio",
+    },
+    {
+      title: "Automatic NFC Pet Feeder",
+      description:
+        "Arduino automated pet feeder prototype using NFC for pet identification. Controls feeding access and portions based on detected tags.",
+
+      imageSrc: [
+        "autopetfeeder/autopetfeeder_1.png",
+        "autopetfeeder/autopetfeeder_2.png",
+        "autopetfeeder/autopetfeeder_demo.mp4",
+      ],
+      technologies: ["Arduino", "C++", "NFC"],
+    },
+    {
+      title: "YUrRoom",
+      description:
+        "Meeting room booking system for York staff and students, supporting room reservations, extensions, administrative management, and integrated deposit and payment processing. Collaborated in a group of 5.",
+      imageSrc: [
+        "yurroom/yurroom_1.png",
+        "yurroom/yurroom_2.png",
+        "yurroom/yurroom_3.png",
+        "yurroom/yurroom_4.png",
+        "yurroom/yurroom_5.png",
+        "yurroom/yurroom_6.png",
+      ],
+      technologies: ["Java", "JavaFX", "Randoop"],
+      link: "https://github.com/katya-koz/eecs-3311-project",
     },
     {
       title: "Balloono",
       description:
-        "In this competitive multiplayer game, similar to Bomberman, players blast through the map with balloons, collect powerups, and defeat opponents, earning currency ('shallots') to purchase cosmetic items in the shop. Supports user account creation, and randomly generated maps. Uses Firebase Realtime database for multiplayer experience.",
-      date: "h",
+        "Multiplayer browser game inspired by Bomberman with real-time gameplay and procedurally generated maps. Supports user accounts and online multiplayer using Firebase Realtime Database.",
+
       imageSrc: [
         "balloono/balloono_5.jpg",
-        "balloono/balloono_1.jpg",
         "balloono/balloono_2.jpg",
-        "balloono/balloono_3.jpg",
-        "balloono/balloono_4.jpg",
         "balloono/balloono_demo.mp4",
       ],
-      technologies: [
-        "C#",
-        "ASP.NET",
-        "SQL",
-        "REST API",
-        "Quartz.NET",
-        "JavaScript",
-        "SQL",
-        "IIS",
-      ],
+      technologies: ["Javascript", "HTML", "FireBase"],
+      link: "https://github.com/katya-koz/balloono-clone",
     },
     {
       title: "Medicine Tracker",
       description:
-        "Prototyped a medicine tracker to help patients or healthcare managers input weekly medication schedules, receive reminders, and mark off medications as they're taken. Developed as an optional final project in the introductory object oriented programming course, addressing the need for enhanced medical management. Made with Arduino and Java (firmata4j library).",
-      date: "December 2025",
+        "Prototype system for managing weekly medication schedules and reminders. Built using Arduino and Java to assist patients or healthcare managers with medication adherence.",
+
       imageSrc: [
         "medicinetracker/medicinetracker_1.jpg",
         "medicinetracker/medicinetracker_demo.mp4",
-        "medicinetracker/medicinetimer_report.pdf",
+        // "medicinetracker/medicinetimer_report.pdf",
       ],
       technologies: ["Java", "Arduino"],
+      link: "https://github.com/katya-koz/medicine-tracker",
     },
     {
       title: "Vampire Hunt Game",
       description:
-        "10th grade culminating computer science project. Retro style, edge scrolling game. Created with Python and Pygame.",
-      date: "December 2025",
+        "Retro-style 2D scrolling game developed in Python using Pygame. Created as a high school computer science capstone project.",
+
       imageSrc: [
         "vampirehuntgame/hunt1.jpg",
         "vampirehuntgame/hunt2.jpg",
@@ -281,6 +307,7 @@ function App() {
         "vampirehuntgame/demo.mp4",
       ],
       technologies: ["Python", "Pygame"],
+      link: "https://github.com/katya-koz/vampire-hunt-game",
     },
   ];
 
@@ -290,7 +317,29 @@ function App() {
   };
 
   return (
-    <main className="bg-slate-50">
+    <main className="dark:text-white text-slate-800 dark:bg-slate-800 bg-slate-50 scroll-smooth">
+      <Section name="navbar">
+        <>
+          <div className="flex md:flex-row flex-col md:justify-between md:justify-center mt-6">
+            <p className="text-2xl m-2 terminal-font">katya_koz@katdroid:~$</p>
+            <div className="flex items-center">
+              <a href="#skills">
+                <p className="text-lg m-2 text-glow">/skills</p>
+              </a>
+
+              <a href="#experience">
+                <p className="text-lg m-2 text-glow">/experience</p>
+              </a>
+
+              <a href="#projects">
+                <p className="text-lg m-2 text-glow">/projects</p>
+              </a>
+              <DarkModeToggle />
+            </div>
+          </div>
+          <hr className="border-slate-200 dark:border-slate-700" />
+        </>
+      </Section>
       <Section name="hero">
         <>
           <div className="flex-col">
@@ -318,21 +367,20 @@ function App() {
             <div className=" justify-between flex flex-col md:flex-row">
               <div className="flex-col">
                 <p className="text-xl m-4 ml-0 leading-loose">
-                  I'm a third year Software Engineering (Security Stream)
-                  student at York University. I love taking on new challenges,
-                  and thrive when I get to see the impact of my work. I'm
-                  currently working on building a game engine in C++. <br />
+                  I'm a fourth year Software Engineering (Security Stream)
+                  student @ YorkU. I love seeing a project through from start to
+                  finish and am happiest when I get to see the impact of my
+                  work. <br />
                   <br />
-                  Aside from programming, I like to watch movies, read (fiction
-                  and memoirs), play games, and bake. I consider myself a little
-                  bit of a film buff, so if you're interested in some of my
-                  movie recommendations don't hesitate to message me on Linkedin
-                  :D
+                  Aside from programming, I like to watch movies, read, play
+                  games, and bake. I consider myself a little bit of a film
+                  buff, so if you're interested in some of my movie
+                  recommendations don't hesitate to message me on Linkedin :D
                 </p>
               </div>
               <div className="basis-1/4 w-1/2 md:w-full self-center aspect-square shrink-0 flex align-center">
                 <img
-                  src="/images/portrait6.png"
+                  src="/images/portrait.png"
                   alt="Profile"
                   className="drop-shadow-lg w-full h-auto object-cover rounded-full self-center"
                 />
@@ -340,27 +388,25 @@ function App() {
             </div>
 
             <div className="flex align-left gap-3 ">
-              <a href="https://github.com/katya-koz">
+              <a href="https://github.com/katya-koz" target="_blank">
                 <i
                   className="
-                        transition-colors
-                        duration-200
-                        ease-in-out hover:text-teal-400 text-2xl 
+                        text-glow 
+                        text-2xl 
                         bi bi-github"
                 ></i>
               </a>
-              <a href="https://ca.linkedin.com/in/katya-koz">
+              <a href="https://ca.linkedin.com/in/katya-koz" target="_blank">
                 <i
                   className="
-                        transition-colors
-                        duration-200
-                        ease-in-out hover:text-teal-400 text-2xl 
+                        text-glow 
+                        text-2xl 
                         bi bi-linkedin"
                 ></i>
               </a>
             </div>
 
-            <hr className="border-line" />
+            <hr className="border-slate-200 dark:border-slate-700" />
           </div>
         </>
       </Section>
@@ -369,31 +415,34 @@ function App() {
         <>
           <h2 className="text-xl font-semibold">Languages</h2>
           <HStack items={languages}></HStack>
-          <h2 className="text-xl font-semibold">Frameworks & Libraries</h2>
+          <h2 className="text-xl font-semibold">
+            Frameworks, APIs, & Libraries
+          </h2>
           <HStack items={frameworks}></HStack>
           <h2 className="text-xl font-semibold">Data</h2>
           <HStack items={data}></HStack>
           <h2 className="text-xl font-semibold">DevOps & Tools</h2>
           <HStack items={devops}></HStack>
 
-          <hr className="border-line" />
+          <hr className="border-slate-200 dark:border-slate-700" />
         </>
       </Section>
 
       <Section name="experience">
         <>
           <TimeLine items={experiences}></TimeLine>
-          <hr className="border-line" />
+          <div className="m-6"></div>
+          <hr className="border-slate-200 dark:border-slate-700" />
         </>
       </Section>
       <Section name="projects">
-        <div className="flex flex-wrap">
-          {projects.map((n, index) => (
-            <ProjectPanel key={index} project={n}></ProjectPanel>
-          ))}
-
-          <hr className="border-line" />
-        </div>
+        <>
+          <ProjectsSection>
+            {projects.map((n, index) => (
+              <ProjectPanel key={index} project={n}></ProjectPanel>
+            ))}
+          </ProjectsSection>
+        </>
       </Section>
 
       <footer className="flex justify-center p-6">

@@ -56,7 +56,7 @@ const TypeWriterText: React.FC<TypeWriterTextProps> = ({
   return (
     <p className="terminal-font text-5xl font-bold">
       {displayedText}
-      {isCaretVisible && <span className="caret">|</span>}
+      {isCaretVisible && <span className="caret">_</span>}
     </p>
   );
 };
