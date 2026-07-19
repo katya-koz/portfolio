@@ -60,6 +60,7 @@ function App() {
     "Kafka",
     "React",
     "Node.js",
+    "Next.js",
     "Vulkan",
     "FastAPI",
     "JUnit",
