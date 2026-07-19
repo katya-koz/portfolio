@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.scss";
 import Section from "./templates/Section";
 import TypeWriterText from "./components/TypeWriterText";
@@ -12,6 +12,12 @@ function App() {
   const [currentLine, setCurrentLine] = useState(0);
 
   const experiences = [
+    {
+      title: "OMERS & Oxford Properties",
+      role: "Software Developer",
+      logoSrc: "/images/op_logo.png",
+      date: "May 2026 - August 2026",
+    },
     {
       title: "Virtual Reality & Perception Lab",
       role: "Research Assistant",
@@ -43,8 +49,8 @@ function App() {
     "Bash",
     "Verilog",
     "R",
-    "SCSS/CSS",
-    "Matlab",
+    // "SCSS/CSS",
+    // "Matlab",
   ];
 
   const frameworks = [
@@ -52,29 +58,57 @@ function App() {
     "ASP.NET",
     "Spring Boot",
     "Kafka",
-    "ReactJS",
-    "NodeJS",
-    "Express.js",
-    "Pandas",
-    "PyTorch",
+    "React",
+    "Node.js",
+    "Vulkan",
+    "FastAPI",
+    "JUnit",
+    // "Express.js",
+    // "Pandas",
+    // "PyTorch",
     "Unity",
   ];
-  const data = ["PostgreSQL", "MongoDB", "MSSQL(T - SQL)", "SSIS"];
+  const data = ["Redis", "PostgreSQL", "MongoDB", "SSIS"];
 
   const devops = [
+    "Kubernetes",
     "Docker",
-    "Azure, AWS (S3, CloudFront)",
+    "Apache Airflow",
+    "Azure",
+    "AWS",
     "Nginx",
-    "JUnit",
     "Debian/Linux",
-    "JMeter",
-    "Maven",
-    "Gradle",
-    "Selenium",
-    "Git",
+    // "JMeter",
+    // "Maven",
+    // "Gradle",
+    // "Selenium",
+    // "Git",
   ];
 
   const projects = [
+    {
+      title: "FPGA Audio Visualizer with Ring Modulator",
+      description:
+        "FPGA audio processing pipeline built with DE10-Lite, implementing: MEMS I²S audio acquisition, 16-point radix-2 FFT spectrum analysis, frequency adjustable ring modulation, and first order delta sigma (ΔΣ) modulation for 1-bit PCM -> PDM audio output.",
+
+      imageSrc: [
+        "audiovisualizer/audiovisualizer_1.jpg",
+        "audiovisualizer/audiovisualizer_2.png",
+        "audiovisualizer/audiovisualizer_3.png",
+        "audiovisualizer/audiovisualizer_demo.mp4",
+      ],
+      technologies: ["Verilog", "FPGA", "Digital Signal Processing", "FFT"],
+      link: "https://github.com/katya-koz/audio-visualizer-and-vocoder",
+    },
+    {
+      title: "HDR Vulkan Image Pipeline",
+      description:
+        "Vulkan graphics pipeline for conducting ISO Single Interval Flicker experiments with stereoscopic HDR rendering, built for a dual monitor mirror stereoscope setup. Created under the Centre for Vision Research @ YorkU.",
+
+      imageSrc: ["vulkanhdr/vulkan_1.jpg", "vulkanhdr/vulkan_2.jpg"],
+      technologies: ["C++", "Vulkan", "GLFW", "OpenCV", "Image Processing"],
+      link: "https://github.com/katya-koz/Single-Interval-Flicker-Vulkan",
+    },
     {
       title: "BlueBid",
       description:
@@ -332,11 +366,10 @@ function App() {
             <div className=" justify-between flex flex-col md:flex-row">
               <div className="flex-col">
                 <p className="text-xl m-4 ml-0 leading-loose">
-                  I'm a third year Software Engineering (Security Stream)
-                  student at York University. I love seeing a project through
-                  from start to finish and am happiest when I get to see the
-                  impact of my work. I'm currently working on building a game
-                  engine in C++. <br />
+                  I'm a fourth year Software Engineering (Security Stream)
+                  student @ YorkU. I love seeing a project through from start to
+                  finish and am happiest when I get to see the impact of my
+                  work. <br />
                   <br />
                   Aside from programming, I like to watch movies, read, play
                   games, and bake. I consider myself a little bit of a film
@@ -346,7 +379,7 @@ function App() {
               </div>
               <div className="basis-1/4 w-1/2 md:w-full self-center aspect-square shrink-0 flex align-center">
                 <img
-                  src="/images/portrait6.png"
+                  src="/images/portrait.png"
                   alt="Profile"
                   className="drop-shadow-lg w-full h-auto object-cover rounded-full self-center"
                 />
@@ -381,7 +414,9 @@ function App() {
         <>
           <h2 className="text-xl font-semibold">Languages</h2>
           <HStack items={languages}></HStack>
-          <h2 className="text-xl font-semibold">Frameworks & Libraries</h2>
+          <h2 className="text-xl font-semibold">
+            Frameworks, APIs, & Libraries
+          </h2>
           <HStack items={frameworks}></HStack>
           <h2 className="text-xl font-semibold">Data</h2>
           <HStack items={data}></HStack>
