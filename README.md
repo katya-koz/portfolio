@@ -1,3 +1,3 @@
 # My Personal Portfolio
 
-Build with React + Tailwind :)
+Built with React + Tailwind :)
