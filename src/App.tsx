@@ -388,7 +388,11 @@ function App() {
             </div>
 
             <div className="flex align-left gap-3 ">
-              <a href="https://github.com/katya-koz" target="_blank">
+              <a
+                href="https://github.com/katya-koz"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   className="
                         text-glow 
@@ -396,7 +400,11 @@ function App() {
                         bi bi-github"
                 ></i>
               </a>
-              <a href="https://ca.linkedin.com/in/katya-koz" target="_blank">
+              <a
+                href="https://ca.linkedin.com/in/katya-koz"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   className="
                         text-glow 
