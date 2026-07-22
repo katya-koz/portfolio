@@ -163,38 +163,38 @@ function App() {
       ],
       link: "https://github.com/katya-koz/movie-library",
     },
-    {
-      title: "SALLY API",
-      description:
-        "Internal backend platform developed during my co-op at Mackenzie Health. Centralizes authentication, user management, reporting, email, and scheduled jobs for the management of over 10,000 employees across multiple hospital services.",
+    // {
+    //   title: "SALLY API",
+    //   description:
+    //     "Internal backend platform developed during my co-op at Mackenzie Health. Centralizes authentication, user management, reporting, email, and scheduled jobs for the management of over 10,000 employees across multiple hospital services.",
 
-      imageSrc: ["sallyapi/sallyapi_1.png"],
-      technologies: ["C#", "ASP.NET", "REST API", "Quartz.NET", "SQL", "IIS"],
-    },
-    {
-      title: "Badgeify",
-      description:
-        "Internal workflow automation tool developed at Mackenzie Health to streamline employee badge issuance. Integrates with Active Directory and external vendors to eliminate manual errors, successfully processing over 1,500 employee badges. Powered by SALLY API.",
+    //   imageSrc: ["sallyapi/sallyapi_1.png"],
+    //   technologies: ["C#", "ASP.NET", "REST API", "Quartz.NET", "SQL", "IIS"],
+    // },
+    // {
+    //   title: "Badgeify",
+    //   description:
+    //     "Internal workflow automation tool developed at Mackenzie Health to streamline employee badge issuance. Integrates with Active Directory and external vendors to eliminate manual errors, successfully processing over 1,500 employee badges. Powered by SALLY API.",
 
-      imageSrc: [
-        "badgeify/badgeify_2.jpg",
-        "badgeify/badgeify_3.jpg",
-        "badgeify/badgeify-demo.mp4",
-      ],
-      technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
-    },
-    {
-      title: "Handsify",
-      description:
-        "Internal dashboard application for managing and maintaining over 10,000 IoT devices across a hospital network. Provides real-time tracking and reporting, with early ML work to predict maintenance needs and reduce manual inspections. Powered by SALLY API.",
+    //   imageSrc: [
+    //     "badgeify/badgeify_2.jpg",
+    //     "badgeify/badgeify_3.jpg",
+    //     "badgeify/badgeify-demo.mp4",
+    //   ],
+    //   technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
+    // },
+    // {
+    //   title: "Handsify",
+    //   description:
+    //     "Internal dashboard application for managing and maintaining over 10,000 IoT devices across a hospital network. Provides real-time tracking and reporting, with early ML work to predict maintenance needs and reduce manual inspections. Powered by SALLY API.",
 
-      imageSrc: [
-        "handsify/handsify_3.jpg",
-        "handsify/handsify_4.jpg",
-        "handsify/handsify-demo.mp4",
-      ],
-      technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
-    },
+    //   imageSrc: [
+    //     "handsify/handsify_3.jpg",
+    //     "handsify/handsify_4.jpg",
+    //     "handsify/handsify-demo.mp4",
+    //   ],
+    //   technologies: ["C#", "ASP.NET", "JavaScript", "SQL", "IIS"],
+    // },
 
     {
       title: "Pawfect Pairs",
