@@ -123,7 +123,7 @@ export default function Carousel({ images }: CarouselProps) {
           images.map((_, index) => (
             <span
               className={
-                index == currItem
+                index === currItem
                   ? "h-2 w-2 bg-slate-400 rounded-full"
                   : "h-2 w-2 bg-slate-200 rounded-full"
               }

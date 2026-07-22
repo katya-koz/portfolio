@@ -25,6 +25,7 @@ export default function ProjectPanel(project: ProjectPanelProps) {
               className="leading-none"
               href={project.project.link}
               target="_blank"
+              rel="noreferrer"
             >
               <i
                 className="
