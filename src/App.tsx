@@ -88,6 +88,30 @@ function App() {
 
   const projects = [
     {
+      title: "KatyaFlix",
+      description:
+        "Self-hosted media management platform for organizing personal video collections. Enables users to track watch history, manage lists, and stream content through a web interface.",
+
+      imageSrc: [
+        "katyaflix/katyaflix_6.jpg",
+        "katyaflix/katyaflix_5.jpg",
+        "katyaflix/katyaflix_1.jpg",
+        "katyaflix/katyaflix_3.jpg",
+        "katyaflix/katyaflix_2.jpg",
+        "katyaflix/katyaflix_4.jpg",
+      ],
+      technologies: [
+        "Java, Spring Boot",
+        "Kafka",
+        "TypeScript",
+        "Next.js",
+        "PostgreSQL",
+        "MongoDB",
+        "Docker",
+      ],
+      link: "https://github.com/katya-koz/microservice-movie-library",
+    },
+    {
       title: "FPGA Audio Visualizer with Ring Modulator",
       description:
         "FPGA audio processing pipeline built with DE10-Lite, implementing: MEMS I²S audio acquisition, 16-point radix-2 FFT spectrum analysis, frequency adjustable ring modulation, and first order delta sigma (ΔΣ) modulation for 1-bit PCM -> PDM audio output.",
@@ -139,30 +163,7 @@ function App() {
       ],
       link: "https://github.com/katya-koz/eecs-4413-project",
     },
-    {
-      title: "KatyaFlix",
-      description:
-        "Self-hosted media management platform for organizing personal video collections. Enables users to track watch history, manage lists, and stream content through a web interface.",
 
-      imageSrc: [
-        "katyaflix/katyaflix_6.jpg",
-        "katyaflix/katyaflix_5.jpg",
-        "katyaflix/katyaflix_1.jpg",
-        "katyaflix/katyaflix_3.jpg",
-        "katyaflix/katyaflix_2.jpg",
-        "katyaflix/katyaflix_4.jpg",
-      ],
-      technologies: [
-        "NodeJS",
-        "ReactJS",
-        "TypeScript",
-        "Nginx",
-        "Docker",
-        "Bash",
-        "Debian",
-      ],
-      link: "https://github.com/katya-koz/movie-library",
-    },
     // {
     //   title: "SALLY API",
     //   description:
